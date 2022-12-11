@@ -1,0 +1,91 @@
+plugins {
+    id 'war'
+    id 'java'
+    id 'org.gretty' version '3.0.6'
+}
+
+sourceCompatibility = 16
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenCentral()
+}
+
+def lombokVersion = '1.18.20'
+def springVersion = '5.3.10'
+def commsVersion = '3.12.0'
+def hibernateValidatorVersion = '6.2.0.Final'
+def postgresVersion = '42.2.24'
+def hsqldbVersion = '2.6.0'
+def jacksonVersion = '2.12.5'
+def javaServler = '4.0.1'
+def apacheVersion = '2.8.0'
+def aspectjWeaverVersion = '1.9.7'
+
+dependencies {
+
+    implementation group: 'org.springframework',
+            name: 'spring-context',
+            version: springVersion
+
+    implementation group: 'org.springframework',
+            name: 'spring-jdbc',
+            version: springVersion
+
+    implementation group: 'org.springframework',
+            name: 'spring-aop',
+            version: springVersion
+
+    implementation group: 'org.springframework',
+            name: 'spring-webmvc',
+            version: springVersion
+
+    implementation group: 'org.apache.commons',
+            name: 'commons-lang3',
+            version: commsVersion
+
+    implementation group: 'com.fasterxml.jackson.core',
+            name: 'jackson-databind',
+            version: jacksonVersion
+
+    compileOnly group: 'javax.servlet',
+            name: 'javax.servlet-api',
+            version: javaServler
+
+    implementation group: 'org.aspectj',
+            name: 'aspectjweaver',
+            version: aspectjWeaverVersion
+
+    implementation group: 'org.postgresql',
+            name: 'postgresql',
+            version: postgresVersion
+
+    implementation group: 'org.apache.commons',
+            name: 'commons-dbcp2',
+            version: apacheVersion
+
+    compileOnly group: 'org.projectlombok',
+            name: 'lombok',
+            version: lombokVersion
+
+    annotationProcessor group: 'org.projectlombok',
+            name: 'lombok',
+            version: lombokVersion
+
+    implementation group: 'org.hsqldb',
+            name: 'hsqldb',
+            version: hsqldbVersion
+
+    implementation group: 'org.hibernate',
+            name: 'hibernate-validator',
+            version: hibernateValidatorVersion
+
+}
+
+
+gretty {
+    contextPath = '/'
+}
